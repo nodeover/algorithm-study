@@ -16,7 +16,7 @@ class Solution:
         return m <= 0  # 0이나 음수가 나온 경우 해당 기간 이하로 가능하다는 뜻
 
     def minDays(self, bloomDay: List[int], m: int, k: int) -> int:
-        if len(bloomDay) < m * k:
+        if len(bloomDay) < m * k:  # 전체 꽃 개수 자체가 부족한 경우 short cut 으로 불가능 응답
             return -1
         left, right = 1, max(bloomDay)  # 리스트 내 꽃이 피기까지 기다려야 할 기간의 최소 최대
         while left < right:  # 최소 최대 기간을 좁히며 더이상 좁힐 수 없을 떄까지 작업 반복
