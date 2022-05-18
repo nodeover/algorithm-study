@@ -1,2 +1,4 @@
 .idea*
 input.txt
+/.idea/.gitignore
+/.gitignore
