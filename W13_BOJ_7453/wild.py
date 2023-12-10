@@ -13,8 +13,7 @@ if __name__ == "__main__":
             LIST_SUM_CD.append(mat[i][2] + mat[j][3])
 
     LIST_SUM_AB.sort()
-    LIST_SUM_CD.sort()
-    LIST_SUM_CD.reverse()
+    LIST_SUM_CD.sort(reverse=True)
     pt_ab, pt_cd = 0, 0
     arr_len = len(LIST_SUM_AB)
     while pt_ab < arr_len and pt_cd < arr_len:
@@ -26,6 +25,7 @@ if __name__ == "__main__":
         elif sum_ab + sum_cd == 0:
             sum_zero_row_cnt += 1
             # 포인터 처리 추가 필요
+            # while
         # AB합(음수) 절대값이 CD합(양수) 절대값보다 작은 경우 CD 포인터 이동
         else:  # elif sum_ab + sum_cd < 0:
             pt_ab += 1
