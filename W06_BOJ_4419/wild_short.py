@@ -4,13 +4,13 @@ s = sys.stdin.readline
 q = int(s())
 u = [s() for _ in range(q)]
 
-r = dict()
+r = []
 i = 0
 while 1:
     z = [int(v) for v in s().split()]
     if not z:
         break
-    r[i] = z
+    r.append(z)
     i += 1
 ww = i/2
 k = [0]*i
@@ -19,7 +19,7 @@ m = [0]*q
 n = [[] for _ in range(q)]
 
 rmn = list(range(q))
-o = r.keys()
+o = list(range(i))
 while 1:
     for i in o:
         z = r[i]
@@ -49,11 +49,9 @@ while 1:
     if min_v == max_v:
         w = rmn
         break
-    for i in p:
-        rmn.pop(rmn.index(i))
-
     o = []
     for i in p:
+        rmn.pop(rmn.index(i))
         if n[i]:
             o.extend(n[i])
         m[i] = -1
