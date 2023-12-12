@@ -16,7 +16,7 @@ ww = i/2
 k = [0]*i
 
 m = [0]*q
-n = [set() for _ in range(q)]
+n = [[] for _ in range(q)]
 
 rmn = list(range(q))
 o = r.keys()
@@ -32,7 +32,7 @@ while 1:
                     break
         if n[to] is not None:
             m[to] += 1
-            n[to].add(i)
+            n[to].append(i)
     max_v = max(m)
     if max_v > ww:
         w = [m.index(max_v)]
@@ -52,10 +52,10 @@ while 1:
     for i in p:
         rmn.pop(rmn.index(i))
 
-    o = set()
+    o = []
     for i in p:
         if n[i]:
-            o = o.union(n[i])
+            o.extend(n[i])
         m[i] = -1
         n[i] = None
     for i in o:
