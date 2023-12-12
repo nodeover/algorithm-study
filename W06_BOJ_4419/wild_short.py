@@ -40,12 +40,11 @@ while 1:
     min_v = 1001
     p = []
     for i, v in enumerate(m):
-        if v != -1:
-            if v < min_v:
-                min_v = v
-                p = [i]
-            elif v == min_v:
-                p.append(i)
+        if v != -1 and v < min_v:
+            min_v = v
+            p = [i]
+        elif v == min_v:
+            p.append(i)
     if min_v == max_v:
         w = rmn
         break
