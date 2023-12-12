@@ -2,7 +2,7 @@ import sys
 s = sys.stdin.readline
 
 q = int(s())
-u = [s() for _ in range(q)]
+u = [s() for i in range(q)]
 
 r = dict()
 i = 0
@@ -12,20 +12,20 @@ while 1:
         break
     r[i] = z
     i += 1
-ww = i/2
-k = [0]*i
+j = len(r)
+k = [0 for _ in range(j)]
 
-m = [0]*q
-n = [set() for _ in range(q)]
+m = [0 for j in range(q)]
+n = [set() for j in range(q)]
 
-rmn = list(range(q))
-o = r.keys()
+rmn = [i for i in range(q)]
+o = range(j)
 while 1:
     for i in o:
         z = r[i]
         to = z[k[i]] - 1
         if to not in rmn:
-            for _ in range(k[i], q):
+            for _ in range(k[i], len(z)):
                 k[i] += 1
                 to = z[k[i]] - 1
                 if to in rmn:
@@ -34,12 +34,12 @@ while 1:
             m[to] += 1
             n[to].add(i)
     max_v = max(m)
-    if max_v > ww:
+    if max_v > j/2:
         w = [m.index(max_v)]
         break
     min_v = 1001
     p = []
-    for i, v in enumerate(m):
+    for v, i in zip(m, range(q)):
         if v != -1:
             if v < min_v:
                 min_v = v
